@@ -1,5 +1,5 @@
 <template>
-  <header class="header">
+  <header class="header" :class="fixed ? 'header_fixed' : ''">
     <div class="wrapper wrapper_big">
       <div class="header__wrap">
         <div class="header__left">
@@ -33,50 +33,74 @@
         </div>
         <div class="header__right">
           <ul class="header__menu">
-            <nuxt-link tag="li" :to="{ name: 'DizajnIntererov' }">
+            <nuxt-link tag="li" :to="{ name: 'dizajn-intererov' }">
               <a class="header__link" :class="'header__link_' + theme"
                 >Дизайн-интерьеров</a
               >
             </nuxt-link>
-            <nuxt-link tag="li" :to="{ name: 'Arhitektura' }">
+            <nuxt-link tag="li" :to="{ name: 'arhitektura' }">
               <a class="header__link" :class="'header__link_' + theme"
                 >Архитектура</a
               >
             </nuxt-link>
-            <nuxt-link tag="li" :to="{ name: 'PredmetnyjDizajn' }">
+            <nuxt-link tag="li" :to="{ name: 'predmetnyj-dizajn' }">
               <a class="header__link" :class="'header__link_' + theme"
                 >Предметный дизайн</a
               >
             </nuxt-link>
           </ul>
           <div class="header__callback">
-            <div class="header__phone">
-              <a :href="'tel:' + changePhone(setting.phone)">{{
+            <div class="header__phone" :class="'header__phone_' + theme">
+              <a :href="'tel:' + setting.phone.replace(/[\s()-]/g, '')">{{
                 setting.phone
               }}</a>
             </div>
+            <header-callback :theme="theme"></header-callback>
           </div>
-          <div class="header__burger"></div>
+          <div class="header__burger">
+            <div
+              class="burger"
+              :class="['burger_' + theme, menu ? 'burger_open' : '']"
+              @click="changeMenu(!menu)"
+            >
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </header>
 </template>
 <script>
-import { mapGetters } from 'vuex'
+import { mapGetters, mapMutations } from 'vuex'
+import HeaderCallback from './HeaderCallback'
 export default {
+  components: {
+    HeaderCallback
+  },
+  props: {
+    theme: {
+      required: true,
+      type: String
+    },
+    fixed: {
+      type: Boolean,
+      default: false
+    }
+  },
   computed: {
     ...mapGetters({
-      theme: 'getTheme',
-      setting: 'getSetting'
+      setting: 'getSetting',
+      menu: 'getMenu'
     })
   },
   methods: {
-    changePhone(data) {
-      const phoneRegEX = /([01]?[- .]?[\\(\\. ]?[2-9]\d{2}[\\)\\. ]?[- .]?\d{3}[- .]\d{4})/
-      const text = data.replace(phoneRegEX)
-      return text
-    }
+    ...mapMutations({
+      changeMenu: 'changeMenu'
+    })
   }
 }
 </script>

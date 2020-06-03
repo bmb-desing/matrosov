@@ -1,0 +1,61 @@
+.callback {
+    position: relative;
+    svg {
+        vertical-align: middle;
+        cursor: pointer;
+    }
+    circle {
+        transition: all .5s ease;
+    }
+    &__icon {
+        &_dark {
+            circle {
+                fill: #fff
+            }
+            .callback__circle {
+                stroke: #fff;
+                fill: none;
+            }
+        }
+        &_white {
+            circle {
+                fill: #000
+            }
+            .callback__circle {
+                fill: none;
+                stroke: #000;
+            }
+        }
+    }
+    &__menu {
+        border-radius: 15px;
+        padding: 8px;
+        border: 1px solid ;
+        position: absolute;
+        left: 0;
+        right: 0;
+        top: 100%;
+        z-index: 15;
+        margin: 0;
+        margin-top: 16px;
+        &_dark {
+            border-color: #fff;
+            svg {
+                * {
+                    fill: #fff
+                }
+            }
+        }
+        &_white {
+            border-color: #000;
+            svg {
+                * {
+                    fill: #000
+                }
+            }
+        }
+    }
+    &__item {
+        list-style-type: none;
+    }
+}
