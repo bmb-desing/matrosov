@@ -32,7 +32,7 @@
           </nuxt-link>
         </div>
         <div class="header__right">
-          <ul class="header__menu">
+          <ul v-if="fixed" class="header__menu">
             <nuxt-link tag="li" :to="{ name: 'dizajn-intererov' }">
               <a class="header__link" :class="'header__link_' + theme"
                 >Дизайн-интерьеров</a
@@ -49,6 +49,7 @@
               >
             </nuxt-link>
           </ul>
+          <div v-else class="header__menu"></div>
           <div class="header__callback">
             <div class="header__phone" :class="'header__phone_' + theme">
               <a :href="'tel:' + setting.phone.replace(/[\s()-]/g, '')">{{

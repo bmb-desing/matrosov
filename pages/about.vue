@@ -2,7 +2,5 @@
   <div></div>
 </template>
 <script>
-export default {
-  name: 'DizajnIntererov'
-}
+export default {}
 </script>

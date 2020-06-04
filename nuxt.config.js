@@ -41,7 +41,7 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [],
+  plugins: [{ src: './plugins/mask.js' }],
   /*
    ** Nuxt.js dev-modules
    */
@@ -58,8 +58,12 @@ module.exports = {
     '@nuxtjs/pwa',
     'cookie-universal-nuxt',
     'nuxt-trailingslash-module',
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    'nuxt-validate'
   ],
+  nuxtValidate: {
+    lang: 'ru'
+  },
   styleResources: {
     scss: ['./assets/styles/global.scss']
   },
@@ -71,6 +75,10 @@ module.exports = {
     prefix: 'api',
     host: process.env.HOST,
     port: process.env.PORT
+  },
+  router: {
+    linkActiveClass: 'active',
+    linkExactActiveClass: 'active-link'
   },
   /*
    ** Build configuration
