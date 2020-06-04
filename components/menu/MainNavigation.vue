@@ -15,7 +15,9 @@
         <div class="navigation__wrap">
           <ul class="navigation__social">
             <li v-for="(item, index) in setting.social" :key="index">
-              <a :href="item.link" target="_blank" v-html="item.icon"></a>
+              <a :href="item.link" target="_blank">
+                <span>{{ sanitize(item.icon) }}</span>
+              </a>
             </li>
           </ul>
         </div>
@@ -24,6 +26,7 @@
   </div>
 </template>
 <script>
+import sanitizeHtml from 'sanitize-html'
 import { mapGetters } from 'vuex'
 import MainHeader from '../header/MainHeader'
 import NavigationList from './MenuList'
@@ -38,6 +41,14 @@ export default {
     ...mapGetters({
       setting: 'getSetting'
     })
+  },
+  methods: {
+    sanitize(icon) {
+      return sanitizeHtml(icon, {
+        allowedTags: false,
+        allowedAttributes: false
+      })
+    }
   }
 }
 </script>

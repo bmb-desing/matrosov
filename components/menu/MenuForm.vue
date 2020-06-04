@@ -48,6 +48,14 @@
           <button>Получить</button>
         </div>
       </div>
+      <p class="form__conf">
+        Отправляя нам эту форму, вы соглашаетесь с
+        <a href="politica.pdf" target="_blank">политикой конфиденциальности</a>
+        и с
+        <a href="personal.pdf" target="_blank"
+          >обработкой ваших персональных данных</a
+        >
+      </p>
     </form>
   </div>
 </template>

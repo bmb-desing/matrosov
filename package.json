@@ -29,6 +29,7 @@
     "nuxt": "^2.0.0",
     "nuxt-trailingslash-module": "^1.1.0",
     "nuxt-validate": "^1.0.1",
+    "sanitize-html": "^1.26.0",
     "v-mask": "^2.2.1",
     "vue-js-modal": "^2.0.0-rc.3",
     "vue-lazy-hydration": "^1.0.0-beta.12",

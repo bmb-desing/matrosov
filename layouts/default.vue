@@ -15,6 +15,7 @@
 </template>
 <script>
 import { mapGetters, mapMutations } from 'vuex'
+import ruRu from 'vee-validate/dist/locale/ru'
 import FirstLoader from '../components/loaders/FirstLoader'
 import MainHeader from '../components/header/MainHeader'
 import MainNavigation from '../components/menu/MainNavigation'
@@ -46,6 +47,9 @@ export default {
         body.classList.remove('hidden')
       }
     }
+  },
+  mounted() {
+    this.$validator.localize('ru_RU', ruRu)
   },
   methods: {
     ...mapMutations({
