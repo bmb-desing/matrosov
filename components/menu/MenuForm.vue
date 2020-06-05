@@ -21,6 +21,9 @@
             :name="item.name"
             class="form__value form__value_input"
             :placeholder="item.placeholder"
+            :class="
+              showError && errors.first(item.name) ? 'form__value_error' : ''
+            "
           />
           <input
             v-else-if="item.type == 'input'"
@@ -30,6 +33,9 @@
             :name="item.name"
             class="form__value form__value_input"
             :placeholder="item.placeholder"
+            :class="
+              showError && errors.first(item.name) ? 'form__value_error' : ''
+            "
           />
           <textarea
             v-else-if="item.type == 'textarea'"
@@ -39,10 +45,13 @@
             :placeholder="item.placeholder"
             class="form__value form__value_textarea"
             rows="10"
+            :class="
+              showError && errors.first(item.name) ? 'form__value_error' : ''
+            "
           ></textarea>
-          <span v-if="showError" class="form__error">{{
-            errors.first(item.name)
-          }}</span>
+          <span v-if="showError && errors.first(item.name)" class="form__error">
+            Обязательно для заполнения
+          </span>
         </div>
         <div class="form__button">
           <button>Получить</button>
@@ -60,6 +69,7 @@
   </div>
 </template>
 <script>
+import { mapMutations } from 'vuex'
 export default {
   data() {
     return {
@@ -74,7 +84,7 @@ export default {
         phone: {
           value: '',
           type: 'input',
-          validate: 'required',
+          validate: 'required|min:18|max:18',
           placeholder: 'Ваш телефон*',
           name: 'phone',
           mask: '+# (###) ##-##-###'
@@ -90,16 +100,37 @@ export default {
     }
   },
   methods: {
+    ...mapMutations({
+      changeMenu: 'changeMenu',
+      changeSuccessForm: 'changeSuccessForm'
+    }),
+    sendForm() {
+      const data = {
+        name: this.form.name.value,
+        phone: this.form.phone.value,
+        text: this.form.text.value,
+        routes: this.$router
+      }
+      // @TODO Отправка формы
+      return data
+    },
+    clearForm() {
+      this.form.name.value = ''
+      this.form.phone.value = ''
+      this.form.text.value = ''
+      return this
+    },
     validateBeforeSubmit() {
-      this.showError = true
       this.$validator.validateAll().then((result) => {
         if (result) {
-          // eslint-disable-next-line
-          alert('Form Submitted!')
-          return
+          this.sendForm()
+          this.clearForm()
+          this.changeMenu(false)
+          this.changeSuccessForm(true)
+          return this
+        } else {
+          this.showError = true
         }
-
-        alert('Correct them errors!')
       })
     }
   }

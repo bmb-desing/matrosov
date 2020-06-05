@@ -16,7 +16,7 @@
           <ul class="navigation__social">
             <li v-for="(item, index) in setting.social" :key="index">
               <a :href="item.link" target="_blank">
-                <span>{{ sanitize(item.icon) }}</span>
+                <span v-html="item.icon"></span>
               </a>
             </li>
           </ul>

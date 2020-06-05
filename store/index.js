@@ -28,7 +28,8 @@ export const state = () => ({
   firstLoader: true,
   theme: 'dark',
   menu: false,
-  callback: false
+  callback: false,
+  successForm: false
 })
 export const getters = {
   getFirstLoader(state) {
@@ -45,6 +46,9 @@ export const getters = {
   },
   getCallback(state) {
     return state.callback
+  },
+  getSuccessForm(state) {
+    return state.successForm
   }
 }
 export const mutations = {
@@ -59,6 +63,9 @@ export const mutations = {
   },
   changeCallback(state, payload) {
     return (state.callback = payload)
+  },
+  changeSuccessForm(state, payload) {
+    return (state.successForm = payload)
   }
 }
 export const actions = {}

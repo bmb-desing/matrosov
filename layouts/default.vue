@@ -10,6 +10,9 @@
     >
       <main-navigation v-show="menu"></main-navigation>
     </transition>
+    <transition name="fade">
+      <send-form v-if="sendForm"></send-form>
+    </transition>
     <nuxt />
   </div>
 </template>
@@ -19,18 +22,21 @@ import ruRu from 'vee-validate/dist/locale/ru'
 import FirstLoader from '../components/loaders/FirstLoader'
 import MainHeader from '../components/header/MainHeader'
 import MainNavigation from '../components/menu/MainNavigation'
+import SendForm from '../components/SendForm'
 export default {
   name: 'LayoutDefault',
   components: {
     FirstLoader,
     MainHeader,
-    MainNavigation
+    MainNavigation,
+    SendForm
   },
   computed: {
     ...mapGetters({
       firstLoad: 'getFirstLoader',
       menu: 'getMenu',
-      theme: 'getTheme'
+      theme: 'getTheme',
+      sendForm: 'getSuccessForm'
     })
   },
   watch: {

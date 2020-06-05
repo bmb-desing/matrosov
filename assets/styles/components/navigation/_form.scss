@@ -1,5 +1,5 @@
 .form {
-  flex-basis: 55%;
+  flex-basis: 60%;
   &__text {
     color: #fff;
     max-width: 450px;
@@ -16,6 +16,7 @@
     position: relative;
   }
   &__item {
+    position: relative;
     &_input {
       flex-basis: 48%;
     }
@@ -45,10 +46,17 @@
       resize: none;
       padding-bottom: 70px;
     }
+    &_error {
+      border-color: #FF0000;
+    }
   }
   &__error {
-    color: red;
+    color: #FF0000;
     padding-top: 5px;
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
     @include fz(14);
   }
   &__button {
@@ -64,6 +72,15 @@
       padding: 18px 48px;
       cursor: pointer;
       outline: none;
+      transition: all .5s;
+      &:hover {
+        background-color: #fff;
+        color: #000;
+      }
+      &:focus {
+        background-color: #BDBDBD;
+        color: #000;
+      }
     }
   }
   &__conf {
