@@ -13,6 +13,9 @@
     <transition name="fade">
       <send-form v-if="sendForm"></send-form>
     </transition>
+    <transition name="fade">
+      <cookie v-if="!cookie"></cookie>
+    </transition>
     <nuxt />
   </div>
 </template>
@@ -23,20 +26,23 @@ import FirstLoader from '../components/loaders/FirstLoader'
 import MainHeader from '../components/header/MainHeader'
 import MainNavigation from '../components/menu/MainNavigation'
 import SendForm from '../components/SendForm'
+import Cookie from '../components/Cookie'
 export default {
   name: 'LayoutDefault',
   components: {
     FirstLoader,
     MainHeader,
     MainNavigation,
-    SendForm
+    SendForm,
+    Cookie
   },
   computed: {
     ...mapGetters({
       firstLoad: 'getFirstLoader',
       menu: 'getMenu',
       theme: 'getTheme',
-      sendForm: 'getSuccessForm'
+      sendForm: 'getSuccessForm',
+      cookie: 'getCookie'
     })
   },
   watch: {

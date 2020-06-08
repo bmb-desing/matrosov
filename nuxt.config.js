@@ -41,7 +41,10 @@ module.exports = {
   /*
    ** Plugins to load before mounting the App
    */
-  plugins: [{ src: './plugins/mask.js' }],
+  plugins: [
+    { src: './plugins/mask.js' },
+    { src: './plugins/three.js', mode: 'client' }
+  ],
   /*
    ** Nuxt.js dev-modules
    */

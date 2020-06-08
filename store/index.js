@@ -1,3 +1,4 @@
+import Cookie from 'js-cookie'
 export const state = () => ({
   setting: {
     phone: '+7 (978) 745-33-41',
@@ -29,11 +30,15 @@ export const state = () => ({
   theme: 'dark',
   menu: false,
   callback: false,
-  successForm: false
+  successForm: false,
+  cookie: Cookie.get('cookie')
 })
 export const getters = {
   getFirstLoader(state) {
     return state.firstLoader
+  },
+  getCookie(state) {
+    return state.cookie
   },
   getTheme(state) {
     return state.theme
@@ -66,6 +71,21 @@ export const mutations = {
   },
   changeSuccessForm(state, payload) {
     return (state.successForm = payload)
+  },
+  changeCookie(state) {
+    this.dispatch('cookieTrue')
+    return (state.cookie = true)
   }
 }
-export const actions = {}
+export const actions = {
+  nuxtServerInit({ commit }, { app }) {
+    if (this.$cookies.get('cookie')) {
+      commit('changeCookie')
+    }
+  },
+  cookieTrue(app) {
+    Cookie.set('cookie', true, {
+      expires: 365
+    })
+  }
+}
