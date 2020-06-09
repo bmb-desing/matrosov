@@ -2,5 +2,7 @@
   <div></div>
 </template>
 <script>
-export default {}
+export default {
+  middleware: ['whiteTheme']
+}
 </script>
