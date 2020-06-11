@@ -88,8 +88,10 @@ export default class Sketch {
   }
 
   resize() {
-    this.width = window.innerWidth
-    this.height = window.innerHeight
+    const elem = document.getElementById('first-screen__content')
+    console.log(elem.clientHeight)
+    this.width = elem.clientWidth
+    this.height = elem.clientHeight
     this.renderer.setSize(this.width, this.height)
     this.camera.aspect = this.width / this.height
     let a1
@@ -166,24 +168,24 @@ export default class Sketch {
     this.render()
   }
 
-  next() {
+  next(index = 1) {
     if (this.isRunning) return
     this.isRunning = true
     const len = this.textures.length
-    const nextTexture = this.textures[(this.current + 1) % len]
+    const nextTexture = this.textures[(this.current + index) % len]
     this.material.uniforms.texture2.value = nextTexture
     const tl = new TimelineMax()
     tl.to(this.material.uniforms.progress, this.duration, {
       value: 1,
       ease: this.easing,
       onComplete: () => {
-        this.current = (this.current + 1) % len
+        this.current = (this.current + index) % len
         this.material.uniforms.texture1.value = nextTexture
         this.material.uniforms.progress.value = 0
         this.isRunning = false
       }
     })
-    return (this.current + 1) % len
+    return (this.current + index) % len
   }
 
   render() {
