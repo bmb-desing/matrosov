@@ -43,3 +43,44 @@
 }
 @import "./menu";
 @import "./form";
+
+
+@media screen and (max-width: 992px) {
+    .navigation {
+        &__wrap {
+            flex-direction: column;
+            align-items: stretch;
+        }
+    }
+    .menu {
+        padding-bottom: 7vh;
+    }
+}
+@media screen and (max-width: 768px) {
+    .menu {
+        padding-top: 36px;
+        &__link {
+            @include fz(20)
+        }
+    }
+    .form {
+        &__text {
+            @include fz(14);
+            font-weight: 300;
+        }
+        &__item {
+            flex-basis: 100%;
+            margin-bottom: 16px;
+            padding-top: 0;
+        }
+        &__button {
+            position: relative;
+            bottom: 0;
+            width: 100%;
+            right: 0;
+            button {
+                width: 100%;
+            }
+        }
+    }
+}

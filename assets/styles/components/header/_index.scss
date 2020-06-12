@@ -84,8 +84,74 @@
 }
 @import "./callback";
 @import "./burger";
+@media screen and (max-width: 1300px) {
+    .header {
+        &__logo {
+            max-width: 170px;
+            width: auto;
+        }
+        &__left {
+            flex-basis: 20%;
+        }
+        &__right {
+            flex-basis: 80%;
+        }
+    }
+}
+@media screen and (max-width: 992px) {
+    .header {
+        &__menu {
+            display: none;
+        }
+        &__right {
+            justify-content: space-between;
+        }
+        &__callback {
+            flex-basis: 80%;
+            justify-content: flex-end;
+            .callback {
+                margin-left: 20px;
+            }
+        }
+    }
+}
 @media screen and (max-width: 768px) {
     .header {
         padding: 32px 0;
+        &_fixed {
+            .header {
+                 &__callback {
+                     display: none;
+                 }
+            }
+        }
+        &__left {
+            flex-basis: 60%;
+        }
+        &__logo {
+            width: auto;
+        }
+        &__right {
+            justify-content: flex-end;
+            flex-basis: 100%;
+            flex-wrap: wrap;
+        }
+        &__wrap {
+            align-items: flex-start;
+            position: relative;
+            padding-bottom: 20px;
+        }
+        &__callback {
+            order: 1;
+            flex-basis: 100%;
+            position: absolute;
+            padding: 5px 0;
+            top: 100%;
+            justify-content: space-between;
+            left: 0;
+            border-bottom: 1px solid rgba($color: #fff, $alpha: .15);
+            border-top: 1px solid rgba($color: #fff, $alpha: .15);
+            right: 0;
+        }
     }
 }
