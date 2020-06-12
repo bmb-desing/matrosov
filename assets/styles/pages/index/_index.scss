@@ -118,3 +118,20 @@
     }
   }
 }
+@media screen and (max-width: 768px) {
+  .first-screen {
+    &__title {
+      @include fz(38);
+      line-height: 44px;
+    }
+    &__link {
+      padding-top: 10px;
+      a {
+        @include fz(14);
+      }
+    }
+    &__navigation {
+      justify-content: space-between;
+    }
+  }
+}
