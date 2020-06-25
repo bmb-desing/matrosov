@@ -43,7 +43,8 @@ module.exports = {
    */
   plugins: [
     { src: './plugins/mask.js' },
-    { src: './plugins/three.js', mode: 'client' }
+    { src: './plugins/three.js', mode: 'client' },
+    { src: './plugins/lazy.js' }
   ],
   /*
    ** Nuxt.js dev-modules

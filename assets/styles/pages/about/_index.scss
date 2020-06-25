@@ -1,0 +1,76 @@
+.about {
+  &__text {
+    .wrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+    &_image {
+      .wrapper {
+        align-items: center;
+      }
+    }
+    .title {
+      flex-basis: 35%;
+    }
+    p {
+      margin: 0;
+      padding-bottom: 16px;
+      color: #191919;
+      &:last-child {
+        padding-bottom: 0;
+      }
+    }
+  }
+  &__content {
+    flex-basis: 55%;
+  }
+  &__image {
+    flex-basis: 45%;
+  }
+  &__counter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 9vh;
+  }
+  &__wrap {
+    flex-basis: 60%;
+  }
+  &__line {
+    background-color: #333333;
+    height: 1px;
+    border: none;
+  }
+  &__light {
+    @include fz(24);
+    font-weight: 300;
+  }
+  &__normal {
+    @include fz(16);
+    font-weight: normal;
+  }
+  &__reward {
+    flex-basis: 60%;
+  }
+  &__changereward {
+    padding-top: 6vh;
+    cursor: pointer;
+    color: #fff;
+    @include fz(14)
+  }
+  &__team {
+    color: #fff;
+    max-width: 560px;
+    @include fz(22);
+    font-weight: 300;
+    padding-bottom: 2vh;
+  }
+  &__desc {
+    @include fz(14);
+    font-weight: 300;
+    color: #fff;
+    padding-top: 1vh;
+  }
+}
+@import "./counter";
+@import "./reward";

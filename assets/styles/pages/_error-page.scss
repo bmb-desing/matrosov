@@ -58,3 +58,18 @@
     }
   }
 }
+@media screen and (max-width: 768px) {
+  .page-error {
+    &__right {
+      display: none;
+    }
+    &__text {
+      line-height: 1.5;
+      @include fz(20)
+    }
+    &__button {
+      max-width: 100%;
+      padding-top: 24px;
+    }
+  }
+}

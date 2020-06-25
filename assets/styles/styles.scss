@@ -19,7 +19,12 @@ body {
 * {
     box-sizing: border-box;
 }
-
+img {
+    max-width: 100%;
+}
+.text-white {
+    color: #fff !important;
+}
 @import "components/index";
 @import "./pages/index";
 

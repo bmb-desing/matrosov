@@ -1,0 +1,33 @@
+.text {
+  b {
+    @include fz(24);
+    font-weight: 600;
+  }
+  ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    @include fz(24);
+    font-weight: 300;
+    padding: 8px 0;
+  }
+  li {
+    position: relative;
+    line-height: 1.2;
+    &::before {
+      content: '-';
+      color: #191919;
+      vertical-align: middle;
+      padding-right: 10px;
+      @include fz(24)
+    }
+  }
+  &_dark {
+    b {
+      color: #191919;
+    }
+    ul {
+      color: #191919;
+    }
+  }
+}

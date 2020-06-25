@@ -1,0 +1,21 @@
+.reward {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-basis: 100%;
+  padding: 16px 0;
+  border-bottom: 1px solid rgba(#fff,.35);
+  &__left {
+    @include fz(24);
+    color: #E0E0E0;
+    font-weight: 300;
+    line-height: 1;
+  }
+  &__right {
+    @include fz(16);
+    a {
+      text-decoration: none;
+      color: #BDBDBD;
+    }
+  }
+}

@@ -89,38 +89,39 @@ export default class Sketch {
 
   resize() {
     const elem = document.getElementById('first-screen__content')
-    console.log(elem.clientHeight)
-    this.width = elem.clientWidth
-    this.height = elem.clientHeight
-    this.renderer.setSize(this.width, this.height)
-    this.camera.aspect = this.width / this.height
-    let a1
-    let a2
-    // image cover
-    this.imageAspect =
-      this.textures[this.textures.length - 1].image.height /
-      this.textures[this.textures.length - 1].image.width
-    if (this.height / this.width > this.imageAspect) {
-      a1 = (this.width / this.height) * this.imageAspect
-      a2 = 1
-    } else {
-      a1 = 1
-      a2 = this.height / this.width / this.imageAspect
+    if (elem) {
+      this.width = elem.clientWidth
+      this.height = elem.clientHeight
+      this.renderer.setSize(this.width, this.height)
+      this.camera.aspect = this.width / this.height
+      let a1
+      let a2
+      // image cover
+      this.imageAspect =
+        this.textures[this.textures.length - 1].image.height /
+        this.textures[this.textures.length - 1].image.width
+      if (this.height / this.width > this.imageAspect) {
+        a1 = (this.width / this.height) * this.imageAspect
+        a2 = 1
+      } else {
+        a1 = 1
+        a2 = this.height / this.width / this.imageAspect
+      }
+
+      this.material.uniforms.resolution.value.x = this.width
+      this.material.uniforms.resolution.value.y = this.height
+      this.material.uniforms.resolution.value.z = a1
+      this.material.uniforms.resolution.value.w = a2
+
+      const dist = this.camera.position.z
+      const height = 1
+      this.camera.fov = 2 * (180 / Math.PI) * Math.atan(height / (2 * dist))
+
+      this.plane.scale.x = this.camera.aspect
+      this.plane.scale.y = 1
+
+      this.camera.updateProjectionMatrix()
     }
-
-    this.material.uniforms.resolution.value.x = this.width
-    this.material.uniforms.resolution.value.y = this.height
-    this.material.uniforms.resolution.value.z = a1
-    this.material.uniforms.resolution.value.w = a2
-
-    const dist = this.camera.position.z
-    const height = 1
-    this.camera.fov = 2 * (180 / Math.PI) * Math.atan(height / (2 * dist))
-
-    this.plane.scale.x = this.camera.aspect
-    this.plane.scale.y = 1
-
-    this.camera.updateProjectionMatrix()
   }
 
   addObjects() {

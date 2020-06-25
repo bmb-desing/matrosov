@@ -7,3 +7,15 @@
         max-width: 1460px;
     }
 }
+.section {
+    padding: 13vh 0;
+    &_white {
+        background-color: #fff;
+    }
+    &_dark {
+        background-color: #171717;
+    }
+    &_padb6 {
+        padding-bottom: 6vh;
+    }
+}

@@ -1,0 +1,18 @@
+.title {
+  padding: 0;
+  margin: 0;
+  &_second {
+    @include fz(32);
+    font-weight: 700;
+  }
+  &_third {
+    font-weight: 700;
+    @include fz(24)
+  }
+  &_dark {
+    color: #191919;
+  }
+  &_white {
+    color: #fff;
+  }
+}

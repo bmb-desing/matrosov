@@ -1,0 +1,15 @@
+.counter {
+  text-align: center;
+  flex-basis: 24%;
+  &__title {
+    color: #191919;
+    font-weight: normal;
+    padding: 0;
+    margin: 0;
+    @include fz(72);
+  }
+  &__text {
+    @include fz(14);
+    color: #191919;
+  }
+}
