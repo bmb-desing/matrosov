@@ -194,36 +194,52 @@
         </div>
       </div>
     </section>
-    <section class="section section_dark">
+    <section class="section section_dark section_padb0">
       <div class="about__text">
         <div class="wrapper">
           <h2 class="title title_second title_white">Клиенты</h2>
           <div class="about__wrap">
+            <div class="about__clients">
+              <about-client
+                v-for="item in clients"
+                :key="'client-' + item._id"
+                :client="item"
+              ></about-client>
+            </div>
             <p class="about__normal text-white">
-              В отличие от многих проектных организаций, в наших работах мы
-              применяем комплексный архитектурный подход, начиная с ландшафта,
-              формируя соответствующее среде здание, его интерьер или предмет в
-              его интерьере. Мы стремимся создать среду в виде
-              объемно-пространственной композиции, которую можно наполнить
-              деталями и необходимыми предметами интерьера, при этом суть самого
-              пространства останется неизменной.
+              Все наши клиенты разные, они живут в своих мирах, но, как и мы,
+              понимающие важность эстетики и ценность природы. Все заняты в
+              разных сферах, но все как один — хотят создавать, развивать и
+              видеть красоту вокруг себя. Своим желанием менять и творить они
+              вдохновляют нас, а мы стараемся вдохновлять их, и в итоге
+              получается именно то, чего хочет и заказчик, и нам. Если Вам
+              близка наша философия - будем рады с вами поработать.
             </p>
+            <div class="about__button">
+              <button @click="changeMenu">Начать проект</button>
+            </div>
             <hr class="about__line about__line_white" />
           </div>
         </div>
       </div>
     </section>
+    <instagram></instagram>
   </div>
 </template>
 <script>
+import { mapMutations } from 'vuex'
 import Counter from '../components/pages/about/Counter'
 import Reward from '../components/pages/about/Reward'
+import AboutClient from '../components/pages/about/AboutClient'
+import Instagram from '../components/pages/Instagram'
 export default {
-  middleware: ['darkTheme'],
+  middleware: ['darkTheme', 'showFooter'],
   name: 'About',
   components: {
     Counter,
-    Reward
+    Reward,
+    AboutClient,
+    Instagram
   },
   data() {
     return {
@@ -263,6 +279,33 @@ export default {
             link: '1'
           }
         }
+      ],
+      clients: [
+        {
+          image: '/clients/1.png',
+          name: '1',
+          _id: 1
+        },
+        {
+          image: '/clients/2.png',
+          name: '1',
+          _id: 2
+        },
+        {
+          name: '1',
+          image: '/clients/3.png',
+          _id: 3
+        },
+        {
+          name: '1',
+          image: '/clients/4.png',
+          _id: 4
+        },
+        {
+          image: '/clients/5.svg',
+          name: '1',
+          _id: 5
+        }
       ]
     }
   },
@@ -277,7 +320,10 @@ export default {
           link: '1'
         }
       })
-    }
+    },
+    ...mapMutations({
+      changeMenu: 'changeMenu'
+    })
   }
 }
 </script>

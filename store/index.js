@@ -3,6 +3,7 @@ export const state = () => ({
   setting: {
     phone: '+7 (978) 745-33-41',
     telegram: 'souris92',
+    email: 'xolms111@ya.ru',
     social: {
       vk: {
         link: '123',
@@ -28,6 +29,7 @@ export const state = () => ({
   },
   firstLoader: true,
   theme: 'dark',
+  footer: true,
   menu: false,
   callback: false,
   successForm: false,
@@ -54,6 +56,9 @@ export const getters = {
   },
   getSuccessForm(state) {
     return state.successForm
+  },
+  getFooter(state) {
+    return state.footer
   }
 }
 export const mutations = {
@@ -75,6 +80,9 @@ export const mutations = {
   changeCookie(state) {
     this.dispatch('cookieTrue')
     return (state.cookie = true)
+  },
+  changeFooter(state, payload) {
+    return (state.footer = payload)
   }
 }
 export const actions = {

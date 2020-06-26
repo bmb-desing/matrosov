@@ -6,6 +6,9 @@
     &_big {
         max-width: 1460px;
     }
+    &_small {
+        max-width: 1044px;
+    }
 }
 .section {
     padding: 13vh 0;
@@ -17,5 +20,8 @@
     }
     &_padb6 {
         padding-bottom: 6vh;
+    }
+    &_padb0 {
+        padding-bottom: 0;
     }
 }

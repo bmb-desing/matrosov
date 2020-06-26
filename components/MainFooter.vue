@@ -1,12 +1,10 @@
 <template>
-  <header class="header" :class="fixed ? 'header_fixed' : ''">
+  <footer class="footer">
     <div class="wrapper wrapper_big">
-      <div class="header__wrap">
-        <div class="header__left">
+      <div class="footer__top">
+        <div class="footer__logo">
           <nuxt-link to="/">
             <svg
-              class="header__logo"
-              :class="'header__logo_' + theme"
               width="143"
               height="20"
               viewBox="0 0 143 20"
@@ -17,89 +15,86 @@
                 fill-rule="evenodd"
                 clip-rule="evenodd"
                 d="M0 0H8.22174L12.7619 10.8273L8.38181 20L0 0Z"
+                fill="black"
               />
               <path
                 fill-rule="evenodd"
                 clip-rule="evenodd"
                 d="M17.9277 0H26.4551V20H17.9277V0Z"
+                fill="black"
               />
               <path
                 d="M47.6274 16.5597H46.1431V6.90801L41.1955 12.728L36.248 6.90801V16.5597H34.7637V4.28101H35.5931L41.181 10.8848L46.7689 4.28101H47.5983V16.5597H47.6274ZM53.6955 13.2941L52.2549 16.5597H50.6251L56.1256 4.28101H56.9551L62.4411 16.5597H60.8113L59.3707 13.2941H53.6955ZM56.5331 6.80641L54.2194 12.0169H58.8468L56.5331 6.80641ZM68.2618 5.55823V16.5597H66.7775V5.55823H62.6594V4.28101H72.3508V5.55823H68.2618ZM75.1448 4.28101H79.4084C81.111 4.28101 82.4934 4.67289 83.5557 5.47114C84.6179 6.2694 85.1418 7.34342 85.1418 8.70772C85.1418 9.70917 84.8362 10.5365 84.225 11.2186C83.6139 11.9008 82.7844 12.3797 81.7367 12.6555C82.4643 12.9312 83.1919 13.6134 83.934 14.6874L85.2582 16.5597H83.5702L82.4934 14.9922C81.955 14.223 81.4748 13.715 81.0528 13.4828C80.6308 13.2505 80.0632 13.1199 79.3211 13.1199H76.6145V16.5597H75.1302V4.28101H75.1448ZM76.629 5.55823V11.8427H79.5248C80.7472 11.8427 81.7658 11.5814 82.5516 11.059C83.3374 10.5365 83.7303 9.75271 83.7303 8.70772C83.7303 7.67724 83.3374 6.8935 82.5516 6.371C81.7658 5.83399 80.7472 5.57274 79.5248 5.57274H76.629V5.55823ZM89.42 5.99364C90.7297 4.77448 92.3304 4.1649 94.193 4.1649C96.0702 4.1649 97.6563 4.77448 98.9805 5.99364C100.305 7.2128 100.96 8.69321 100.96 10.4203C100.96 12.1475 100.305 13.6279 98.9805 14.847C97.6563 16.0662 96.0702 16.6758 94.193 16.6758C92.3158 16.6758 90.7297 16.0662 89.42 14.847C88.1104 13.6279 87.441 12.1475 87.441 10.4203C87.4555 8.69321 88.1104 7.2128 89.42 5.99364ZM97.9619 6.86447C96.9433 5.90656 95.6918 5.4276 94.2075 5.4276C92.7233 5.4276 91.4864 5.90656 90.4677 6.86447C89.4491 7.82238 88.9398 8.99799 88.9398 10.4203C88.9398 11.8427 89.4491 13.0183 90.4677 13.9762C91.4864 14.9341 92.7378 15.4131 94.2075 15.4131C95.6918 15.4131 96.9433 14.9341 97.9619 13.9762C98.9805 13.0183 99.5044 11.8427 99.5044 10.4203C99.5044 8.99799 98.9805 7.82238 97.9619 6.86447ZM108.235 4.15039H108.439C109.37 4.15039 110.273 4.32456 111.117 4.6874C111.975 5.05024 112.674 5.55823 113.227 6.19683L112.266 7.00961C111.815 6.51614 111.233 6.13878 110.535 5.8485C109.836 5.57274 109.138 5.4276 108.425 5.4276H108.221C107.435 5.4276 106.722 5.61628 106.082 5.99364C105.441 6.371 105.121 6.8935 105.121 7.57564C105.121 8.09814 105.354 8.50453 105.82 8.7948C106.285 9.08508 106.999 9.28827 107.973 9.40438L109.429 9.57855C110.826 9.7382 111.888 10.101 112.615 10.6381C113.343 11.1751 113.692 11.9878 113.692 13.0619C113.692 14.1359 113.227 15.0067 112.281 15.6743C111.335 16.342 110.185 16.6758 108.803 16.6903H108.687C107.406 16.6903 106.3 16.4436 105.383 15.9646C104.452 15.4857 103.768 14.8325 103.346 14.0198L104.306 13.1925C104.627 13.8456 105.165 14.3826 105.922 14.789C106.678 15.1954 107.61 15.3986 108.687 15.3986H108.803C109.778 15.3986 110.593 15.1809 111.233 14.76C111.888 14.3391 112.208 13.773 112.208 13.0619C112.208 12.3942 111.961 11.8862 111.466 11.5379C110.971 11.1896 110.229 10.9574 109.254 10.8267L107.813 10.6671C106.431 10.5074 105.398 10.1736 104.699 9.68014C104.001 9.18667 103.652 8.49001 103.652 7.59016C103.652 6.55968 104.103 5.73239 104.99 5.09379C105.893 4.48421 106.969 4.1649 108.235 4.15039ZM118.043 5.99364C119.353 4.77448 120.954 4.1649 122.816 4.1649C124.693 4.1649 126.28 4.77448 127.604 5.99364C128.928 7.2128 129.583 8.69321 129.583 10.4203C129.583 12.1475 128.928 13.6279 127.604 14.847C126.28 16.0662 124.693 16.6758 122.816 16.6758C120.939 16.6758 119.353 16.0662 118.043 14.847C116.734 13.6279 116.064 12.1475 116.064 10.4203C116.064 8.69321 116.734 7.2128 118.043 5.99364ZM126.571 6.86447C125.552 5.90656 124.301 5.4276 122.816 5.4276C121.332 5.4276 120.095 5.90656 119.076 6.86447C118.058 7.82238 117.549 8.99799 117.549 10.4203C117.549 11.8427 118.058 13.0183 119.076 13.9762C120.095 14.9341 121.347 15.4131 122.816 15.4131C124.301 15.4131 125.552 14.9341 126.571 13.9762C127.589 13.0183 128.113 11.8427 128.113 10.4203C128.113 8.99799 127.604 7.82238 126.571 6.86447ZM137.47 16.5597H136.655L131.082 4.28101H132.711L137.048 14.0198L141.37 4.28101H143L137.47 16.5597Z"
+                fill="black"
               />
             </svg>
           </nuxt-link>
         </div>
-        <div class="header__right">
-          <ul v-if="fixed" class="header__menu">
-            <nuxt-link tag="li" :to="{ name: 'dizajn-intererov' }">
-              <a class="header__link" :class="'header__link_' + theme"
-                >Дизайн-интерьеров</a
-              >
+        <div class="footer__callback">
+          <a :href="'tel:' + setting.phone.replace(/[\s()-]/g, '')">{{
+            setting.phone
+          }}</a>
+          <a :href="'mailto:' + setting.email">{{ setting.email }}</a>
+        </div>
+        <div class="footer__social">
+          <ul>
+            <li
+              v-for="(item, index) in setting.social"
+              :key="'social-' + index"
+            >
+              <a :href="item.link" target="_blank">
+                <span v-html="item.icon"></span>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer__bottom">
+        <div class="footer__menu">
+          <ul>
+            <nuxt-link :to="{ name: 'about' }" tag="li">
+              <a>О нас</a>
+            </nuxt-link>
+            <nuxt-link :to="{ name: 'dizajn-intererov' }" tag="li">
+              <a>Дизайн интерьеров</a>
             </nuxt-link>
             <nuxt-link tag="li" :to="{ name: 'arhitektura' }">
-              <a class="header__link" :class="'header__link_' + theme"
-                >Архитектура</a
-              >
+              <a>Архитектура</a>
             </nuxt-link>
             <nuxt-link tag="li" :to="{ name: 'predmetnyj-dizajn' }">
-              <a class="header__link" :class="'header__link_' + theme"
-                >Предметный дизайн</a
-              >
+              <a>Предметный дизайн</a>
+            </nuxt-link>
+            <nuxt-link tag="li" :to="{ name: 'team' }">
+              <a>Команда</a>
+            </nuxt-link>
+            <nuxt-link tag="li" :to="{ name: 'news' }">
+              <a>Новости</a>
+            </nuxt-link>
+            <nuxt-link tag="li" :to="{ name: 'contacts' }">
+              <a>Контакты</a>
             </nuxt-link>
           </ul>
-          <div v-else class="header__menu"></div>
-          <div class="header__callback">
-            <div class="header__phone" :class="'header__phone_' + theme">
-              <a :href="'tel:' + setting.phone.replace(/[\s()-]/g, '')">{{
-                setting.phone
-              }}</a>
-            </div>
-            <header-callback :theme="theme"></header-callback>
-          </div>
-          <div class="header__burger">
-            <div
-              class="burger"
-              :class="['burger_' + theme, menu ? 'burger_open' : '']"
-              @click="changeMenu(!menu)"
-            >
-              <span></span>
-              <span></span>
-              <span></span>
-              <span></span>
-            </div>
-          </div>
+        </div>
+        <div class="footer__copy">© Copyright {{ getYear }} «Matrosov»</div>
+        <div class="footer__job">
+          created in <a href="https://bmb-design.ru" target="_blank">BMB</a>
         </div>
       </div>
     </div>
-  </header>
+  </footer>
 </template>
 <script>
-import { mapGetters, mapMutations } from 'vuex'
-import HeaderCallback from './HeaderCallback'
+import { mapGetters } from 'vuex'
 export default {
-  components: {
-    HeaderCallback
-  },
-  props: {
-    theme: {
-      required: true,
-      type: String
-    },
-    fixed: {
-      type: Boolean,
-      default: false
-    }
-  },
+  name: 'MainFooter',
   computed: {
     ...mapGetters({
-      setting: 'getSetting',
-      menu: 'getMenu'
-    })
-  },
-  methods: {
-    ...mapMutations({
-      changeMenu: 'changeMenu'
-    })
+      setting: 'getSetting'
+    }),
+    getYear() {
+      const date = new Date()
+      return date.getFullYear()
+    }
   }
 }
 </script>

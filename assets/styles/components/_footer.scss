@@ -1,0 +1,76 @@
+.footer {
+  background-color: #fff;
+  padding: 8vh 0 5vh;
+  &__top {
+    border-bottom: 1px solid #E0E0E0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1vh;
+  }
+  &__logo {
+    flex-basis: 20%;
+  }
+  &__callback {
+    flex-basis: 20%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    a {
+      color: #000000;
+      @include fz(14);
+      text-decoration: none;
+    }
+  }
+  &__social {
+    flex-basis: 10%;
+    ul {
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    svg {
+      * {
+        fill: #000
+      }
+    }
+  }
+  &__bottom {
+    display: flex;
+    justify-content: space-between;
+    padding-top: 2vh;
+    align-items: center;
+  }
+  &__menu {
+    flex-basis: 50%;
+    ul {
+      display: flex;
+      padding: 0;
+      margin: 0;
+      justify-content: space-between;
+      align-items: center;
+      list-style-type: none;
+    }
+    a {
+      text-decoration: none;
+      color: #000;
+      @include fz(14)
+    }
+  }
+  &__copy {
+    flex-basis: 15%;
+    color: #333333;
+    @include fz(12)
+  }
+  &__job {
+    @include fz(12);
+    a {
+      font-weight: bold;
+      color: #000;
+      text-decoration: none;
+    }
+  }
+}

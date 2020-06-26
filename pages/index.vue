@@ -8,7 +8,7 @@
 import FirstScreen from '../components/pages/FirstScreen'
 export default {
   name: 'Index',
-  middleware: ['darkTheme'],
+  middleware: ['darkTheme', 'hideFooter'],
   components: {
     FirstScreen
   }

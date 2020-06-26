@@ -17,6 +17,7 @@
       <cookie v-if="!cookie"></cookie>
     </transition>
     <nuxt />
+    <main-footer v-if="footer"></main-footer>
   </div>
 </template>
 <script>
@@ -27,6 +28,7 @@ import MainHeader from '../components/header/MainHeader'
 import MainNavigation from '../components/menu/MainNavigation'
 import SendForm from '../components/SendForm'
 import Cookie from '../components/Cookie'
+import MainFooter from '../components/MainFooter'
 export default {
   name: 'LayoutDefault',
   components: {
@@ -34,7 +36,8 @@ export default {
     MainHeader,
     MainNavigation,
     SendForm,
-    Cookie
+    Cookie,
+    MainFooter
   },
   computed: {
     ...mapGetters({
@@ -42,7 +45,8 @@ export default {
       menu: 'getMenu',
       theme: 'getTheme',
       sendForm: 'getSuccessForm',
-      cookie: 'getCookie'
+      cookie: 'getCookie',
+      footer: 'getFooter'
     })
   },
   watch: {

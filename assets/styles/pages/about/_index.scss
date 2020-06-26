@@ -71,6 +71,34 @@
     color: #fff;
     padding-top: 1vh;
   }
+  &__clients {
+    display: flex;
+    align-items: center;
+    padding-bottom: 5vh;
+    flex-wrap: wrap;
+  }
+  &__button {
+    padding-top: 4vh;
+    padding-bottom: 4vh;
+    button {
+      line-height: 1;
+      padding: 18px 45px;
+      background-color: transparent;
+      color: #fff;
+      outline: none;
+      cursor: pointer;
+      border: 1px solid #fff;
+    }
+  }
 }
+.client {
+  flex-basis: 25%;
+  padding-bottom: 4vh;
+  &__image {
+    max-width: 100%;
+    vertical-align: top;
+  }
+}
+
 @import "./counter";
 @import "./reward";
