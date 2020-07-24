@@ -100,5 +100,31 @@
   }
 }
 
+@media screen and (max-width: 992px) {
+  .about {
+    &__text {
+      .wrapper {
+        flex-direction: column;
+      }
+      .title {
+        flex-basis: 100%;
+        padding-bottom: 20px;
+        @include fz(24);
+      }
+    }
+    &__light {
+      @include fz(20)
+    }
+    &__counter {
+      flex-wrap: wrap;
+      padding-top: 3vh;
+    }
+    &__clients {
+      flex-wrap: wrap;
+    }
+  }
+}
+
+
 @import "./counter";
 @import "./reward";

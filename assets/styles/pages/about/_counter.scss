@@ -13,3 +13,14 @@
     color: #191919;
   }
 }
+@media screen and (max-width: 767px) {
+  .counter {
+    flex-basis: 49%;
+    padding-bottom: 3vh;
+  }
+}
+@media screen and (max-width: 480px) {
+  .counter {
+    flex-basis: 100%;
+  }
+}
