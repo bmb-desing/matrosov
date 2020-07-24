@@ -46,3 +46,19 @@
     }
   }
 }
+@media screen and (max-width: 768px) {
+  .instagram {
+    padding: 6vh 0;
+    &__left {
+      flex-basis: 100%;
+    }
+    &__right {
+      display: none;
+    }
+    &__text {
+      p {
+        max-width: 100%;
+      }
+    }
+  }
+}

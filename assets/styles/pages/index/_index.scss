@@ -170,5 +170,8 @@
     &__navigation {
       justify-content: space-between;
     }
+    &__desc {
+      @include fz(16)
+    }
   }
 }

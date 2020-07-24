@@ -19,3 +19,13 @@
     }
   }
 }
+@media screen and (max-width: 480px) {
+  .reward {
+    &__left {
+      @include fz(16);
+    }
+    &__right {
+      @include fz(14)
+    }
+  }
+}
