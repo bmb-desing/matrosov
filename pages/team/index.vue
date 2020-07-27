@@ -1,5 +1,11 @@
 <template>
   <div class="page-team">
+    <div class="wrapper">
+      <div class="wrapper_team">
+        <h1 class="title title_white title_page">Команда</h1>
+        <div class="wrapper_content"></div>
+      </div>
+    </div>
     <instagram></instagram>
   </div>
 </template>
