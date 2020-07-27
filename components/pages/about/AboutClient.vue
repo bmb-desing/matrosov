@@ -1,6 +1,11 @@
 <template>
   <div class="client">
-    <img v-lazy="client.image" :alt="client.name" class="client__image" />
+    <img
+      v-lazy="client.image"
+      :alt="client.name"
+      class="client__image"
+      :title="client.name"
+    />
   </div>
 </template>
 <script>

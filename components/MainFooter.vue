@@ -31,15 +31,15 @@
           </nuxt-link>
         </div>
         <div class="footer__callback">
-          <a :href="'tel:' + setting.phone.replace(/[\s()-]/g, '')">{{
+          <a :href="'tel:' + setting('phone').replace(/[\s()-]/g, '')">{{
             setting.phone
           }}</a>
-          <a :href="'mailto:' + setting.email">{{ setting.email }}</a>
+          <a :href="'mailto:' + setting('email')">{{ setting.email }}</a>
         </div>
         <div class="footer__social">
           <ul>
             <li
-              v-for="(item, index) in setting.social"
+              v-for="(item, index) in setting('social')"
               :key="'social-' + index"
             >
               <a :href="item.link" target="_blank">

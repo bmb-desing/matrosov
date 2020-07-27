@@ -14,7 +14,7 @@
       <div class="wrapper wrapper_big">
         <div class="navigation__wrap">
           <ul class="navigation__social">
-            <li v-for="(item, index) in setting.social" :key="index">
+            <li v-for="(item, index) in setting('social')" :key="index">
               <a :href="item.link" target="_blank">
                 <span v-html="item.icon"></span>
               </a>

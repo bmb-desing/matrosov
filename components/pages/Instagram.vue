@@ -13,7 +13,7 @@
                 </p>
               </div>
               <div class="instagram__link">
-                <a :href="setting.social.instagram.link" target="_blank">
+                <a :href="getInstLink.instagram.link" target="_blank">
                   перейти
                   <svg
                     width="32"
@@ -32,9 +32,9 @@
             </div>
             <div class="instagram__right">
               <div
-                class="instagram__item"
                 v-for="(item, index) in inst"
                 :key="'instagram_' + index"
+                class="instagram__item"
               >
                 <a :href="item.link" target="_blank">
                   <img v-lazy="item.image" :alt="item.link" />
@@ -71,7 +71,10 @@ export default {
   computed: {
     ...mapGetters({
       setting: 'getSetting'
-    })
+    }),
+    getInstLink() {
+      return this.setting('social')
+    }
   }
 }
 </script>

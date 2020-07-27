@@ -36,7 +36,7 @@
         <li class="callback__item">
           <a
             :href="
-              'viber://chat?number=' + setting.phone.replace(/[\s()-]/g, '')
+              'viber://chat?number=' + setting('phone').replace(/[\s()-]/g, '')
             "
           >
             <svg
@@ -68,7 +68,7 @@
         </li>
         <li class="callback__item">
           <a
-            :href="'https://wa.me/' + setting.phone.replace(/[\s()+-]/g, '')"
+            :href="'https://wa.me/' + setting('phone').replace(/[\s()+-]/g, '')"
             target="_blank"
           >
             <svg
@@ -89,7 +89,10 @@
           </a>
         </li>
         <li class="callback__item">
-          <a :href="'https://tele.click/' + setting.telegram" target="_blank">
+          <a
+            :href="'https://tele.click/' + setting('telegram')"
+            target="_blank"
+          >
             <svg
               width="14"
               height="14"

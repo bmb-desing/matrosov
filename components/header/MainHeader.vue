@@ -50,8 +50,8 @@
           <div v-else class="header__menu"></div>
           <div class="header__callback">
             <div class="header__phone" :class="'header__phone_' + theme">
-              <a :href="'tel:' + setting.phone.replace(/[\s()-]/g, '')">{{
-                setting.phone
+              <a :href="'tel:' + setting('phone').replace(/[\s()-]/g, '')">{{
+                setting('phone')
               }}</a>
             </div>
             <header-callback :theme="theme"></header-callback>

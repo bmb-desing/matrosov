@@ -77,36 +77,16 @@
 <script>
 import Sketch from '../../modules/sketch'
 export default {
+  props: {
+    slider: {
+      required: true,
+      type: Array
+    }
+  },
   data() {
     return {
       sketch: {},
-      currentSlide: 0,
-      slider: [
-        {
-          image: '/slider/first.jpg',
-          title: 'Новый проект в Севастополе',
-          link: {
-            text: 'Подробнее о проекте',
-            link: '/123'
-          }
-        },
-        {
-          image: '/slider/second.jpg',
-          title: 'Проект «Пенза»',
-          link: {
-            text: 'Подробнее о проекте',
-            link: '/123'
-          }
-        },
-        {
-          image: '/slider/third.jpg',
-          title: 'Дом Калиниченко',
-          link: {
-            text: 'Подробнее о проекте',
-            link: '/123'
-          }
-        }
-      ]
+      currentSlide: 0
     }
   },
   mounted() {

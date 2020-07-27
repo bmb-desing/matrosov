@@ -1,7 +1,7 @@
 <template>
   <div class="page-about">
     <div
-      v-lazy:background-image="'/about.jpg'"
+      v-lazy:background-image="page.content.firstScreen.background"
       class="first-screen__content first-screen__content_cover"
     >
       <div class="first-screen__slider">
@@ -61,17 +61,16 @@
         <div class="first-screen__top"></div>
         <div class="first-screen__center first-screen__center_about">
           <div class="wrapper">
-            <h1 class="first-screen__title">О нас</h1>
+            <h1 class="first-screen__title">
+              {{ page.content.firstScreen.title }}
+            </h1>
             <div class="first-screen__desc">
               <p>
-                «Если в правильно спроектированном и правильно построенном доме
-                учтено все, что дают нам солнце и природа, он обязательно будет
-                только хорошим и светлым, даже если мы выбрали не самый дорогой
-                вариант.»
+                {{ page.content.firstScreen.text }}
               </p>
             </div>
             <div class="first-screen__quote">
-              - Изд. Йожеф Косо
+              {{ page.content.firstScreen.target }}
             </div>
           </div>
         </div>
@@ -82,13 +81,11 @@
       <div class="about__text">
         <div class="wrapper">
           <h2 class="title title_second title_dark">
-            Ведущее архитектурное дизайн-бюро Крыма
+            {{ page.content.secondScreen.title }}
           </h2>
           <div class="about__wrap">
             <p class="about__light">
-              Главным принципом работы «MATROSOV ARCHITECTS» является создание
-              качественной среды, архитектура которой является актуальной в
-              любом времени, неустаревающей через десятки лет, всегда ценной.
+              {{ page.content.secondScreen.text }}
             </p>
           </div>
         </div>
@@ -101,20 +98,21 @@
       <div class="about__text">
         <div class="wrapper wrapper_counter">
           <h2 class="title title_second title_dark">
-            Услуги
+            {{ page.content.thirdScreen.title }}
           </h2>
           <div class="about__wrap text text_dark">
-            <b>Охватываем три направлениях:</b>
+            <b>{{ page.content.thirdScreen.subtitle }}</b>
             <ul>
-              <li>
-                дизайн интерьеров
+              <li
+                v-for="(item, index) in page.content.thirdScreen.items"
+                :key="'projects-' + index"
+              >
+                {{ item }}
               </li>
-              <li>архитектура</li>
-              <li>предметный дизайн</li>
             </ul>
             <div class="about__counter">
               <counter
-                v-for="(item, index) in counter"
+                v-for="(item, index) in page.content.thirdScreen.counter"
                 :key="'count-' + index"
                 :count="item"
               ></counter>
@@ -126,7 +124,9 @@
     <section class="section section_dark">
       <div class="about__text">
         <div class="wrapper">
-          <h2 class="title title_second title_white">Награды</h2>
+          <h2 class="title title_second title_white">
+            {{ page.content.fourthScreen.title }}
+          </h2>
           <div class="about__reward">
             <transition-group name="zoom">
               <reward
@@ -150,28 +150,12 @@
       <div class="about__text">
         <div class="wrapper">
           <h2 class="title title_second title_dark">
-            Наша философия
+            {{ page.content.fivethScreen.title }}
           </h2>
-          <div class="about__wrap">
-            <p class="about__normal">
-              В отличие от многих проектных организаций, в наших работах мы
-              применяем комплексный архитектурный подход, начиная с ландшафта,
-              формируя соответствующее среде здание, его интерьер или предмет в
-              его интерьере. Мы стремимся создать среду в виде
-              объемно-пространственной композиции, которую можно наполнить
-              деталями и необходимыми предметами интерьера, при этом суть самого
-              пространства останется неизменной.
-            </p>
-            <p class="about__normal">
-              Мы уважительно относимся к природе и создаем соответствующую
-              среду, используя соответствующие этой среде натуральные материалы
-              и цвета: дерево, стекло, бетон, металл, камень, лен, глину и т.д.
-              Обрабатываем материалы сохраняя их фактуры, чтобы можно было не
-              только зрительно, но и тактильно, на ощупь ощутить тепло
-              деревянной поверхности или легкую прохладу камня. Мы создаем
-              пространство, которое будет жить вне времени.
-            </p>
-          </div>
+          <div
+            class="about__wrap"
+            v-html="page.content.fivethScreen.text"
+          ></div>
         </div>
       </div>
     </section>
@@ -180,16 +164,20 @@
         <div class="wrapper">
           <div class="about__content">
             <div class="about__team">
-              «Качественная архитектура — это внимание каждой детали, это
-              удобство и комфорт для жизни, работы и отдыха.»
+              {{ page.content.sixthScreen.text }}
             </div>
-            <h3 class="title title_third title_white">Павел Матросов</h3>
+            <h3 class="title title_third title_white">
+              {{ page.content.sixthScreen.title }}
+            </h3>
             <div class="about__desc">
-              Основатель и руководитель «MATROSOV ARCHITECTS».
+              {{ page.content.sixthScreen.desc }}
             </div>
           </div>
           <div class="about__image">
-            <img v-lazy="'/about.png'" alt="Павел Матросов" />
+            <img
+              v-lazy="page.content.sixthScreen.image"
+              :alt="page.content.sixthScreen.title"
+            />
           </div>
         </div>
       </div>
@@ -197,7 +185,9 @@
     <section class="section section_dark section_padb0">
       <div class="about__text">
         <div class="wrapper">
-          <h2 class="title title_second title_white">Клиенты</h2>
+          <h2 class="title title_second title_white">
+            {{ page.content.seventhScreen.title }}
+          </h2>
           <div class="about__wrap">
             <div class="about__clients">
               <about-client
@@ -207,13 +197,7 @@
               ></about-client>
             </div>
             <p class="about__normal text-white">
-              Все наши клиенты разные, они живут в своих мирах, но, как и мы,
-              понимающие важность эстетики и ценность природы. Все заняты в
-              разных сферах, но все как один — хотят создавать, развивать и
-              видеть красоту вокруг себя. Своим желанием менять и творить они
-              вдохновляют нас, а мы стараемся вдохновлять их, и в итоге
-              получается именно то, чего хочет и заказчик, и нам. Если Вам
-              близка наша философия - будем рады с вами поработать.
+              {{ page.content.seventhScreen.text }}
             </p>
             <div class="about__button">
               <button @click="changeMenu">Начать проект</button>
@@ -241,26 +225,25 @@ export default {
     AboutClient,
     Instagram
   },
+  async asyncData({ app, error }) {
+    try {
+      const page = await app.$axios.get('/page/about')
+      const clients = await app.$axios.get('/clients')
+      if (page.status === 200) {
+        return {
+          page: page.data,
+          clients: clients.data
+        }
+      } else {
+        return error(404, 'Страница не найдена')
+      }
+    } catch (err) {
+      return error(404, 'Страница не найдена')
+    }
+  },
   data() {
     return {
-      counter: [
-        {
-          title: '10',
-          text: 'лет на рынке'
-        },
-        {
-          title: '4',
-          text: 'сотрудника'
-        },
-        {
-          title: '25',
-          text: 'наград'
-        },
-        {
-          title: '300+',
-          text: 'реализованных проектов'
-        }
-      ],
+      page: {},
       rewardsCount: 3,
       rewards: [
         {
@@ -324,6 +307,38 @@ export default {
     ...mapMutations({
       changeMenu: 'changeMenu'
     })
+  },
+  head() {
+    return {
+      title: this.page.title,
+      meta: [
+        {
+          hid: 'description',
+          name: 'description',
+          content: this.page.description
+        },
+        {
+          hid: 'og:description',
+          name: 'og:description',
+          content: this.page.description
+        },
+        {
+          hid: 'og:title',
+          name: 'og:title',
+          content: this.page.title
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: this.page.image
+        },
+        {
+          hid: 'keywords',
+          name: 'keywords',
+          content: this.page.keywords
+        }
+      ]
+    }
   }
 }
 </script>

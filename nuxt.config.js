@@ -76,7 +76,7 @@ module.exports = {
    ** See https://axios.nuxtjs.org/options
    */
   axios: {
-    prefix: 'api',
+    prefix: '/api',
     host: process.env.HOST,
     port: process.env.PORT
   },
