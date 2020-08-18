@@ -32,9 +32,9 @@
         </div>
         <div class="footer__callback">
           <a :href="'tel:' + setting('phone').replace(/[\s()-]/g, '')">{{
-            setting.phone
+            setting('phone')
           }}</a>
-          <a :href="'mailto:' + setting('email')">{{ setting.email }}</a>
+          <a :href="'mailto:' + setting('email')">{{ setting('email') }}</a>
         </div>
         <div class="footer__social">
           <ul>

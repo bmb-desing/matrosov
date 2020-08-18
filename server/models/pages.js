@@ -1,5 +1,7 @@
-const mongoose = require('../config/database')
-const pages = mongoose.model('pages', { 
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+const database = require('../config/database')
+const pagesSchema = new Schema({ 
   title: String,
   content: mongoose.Mixed,
   description: String,
@@ -9,7 +11,26 @@ const pages = mongoose.model('pages', {
     type: String,
     unique: true,
     lowercase: true
+  },
+  created_at: {
+    type: Date,
+    default: function(){
+      return Date.now();
+    }
+  },
+  updated_at: {
+    type: Date,
+    default: function(){
+      return Date.now();
+    }
   }
 });
 
-module.exports = pages
+pagesSchema.pre('save', function(done) {
+  this.updated_at = Date.now();
+  done();
+});
+
+const Pages = database.model('pages', pagesSchema)
+
+module.exports = Pages

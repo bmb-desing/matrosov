@@ -25,6 +25,7 @@ const logger = winston.createLogger({
         level: 'error',
         maxsize: 5242880, //5MB
         maxFiles: 5,
+        handleExceptions: true,
         colorize: false,
         timestamp: myTimestamp
       }

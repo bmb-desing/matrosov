@@ -1,5 +1,6 @@
 module.exports = {
   config: require('./configSeeder')(),
   pages: require('./pageSeeder')(),
-  client: require('./clientSeeder')()
+  client: require('./clientSeeder')(),
+  team: require('./teamSeeder')()
 }

@@ -2,3 +2,162 @@
   min-height: 100vh;
   background-color: #171717;
 }
+.team {
+  padding-bottom: 2vh;
+  border-bottom: 1px solid #E0E0E0;
+  margin-bottom: 8vh;
+  &:last-child {
+    margin-bottom: 0;
+  }
+  &__wrap {
+    display: flex;
+    justify-content: space-between;
+  }
+  &__content {
+    flex-basis: 60%;
+  }
+
+
+  &__image {
+    width: 100%;
+    vertical-align: top;
+  }
+
+  &__name {
+    line-height: 1;
+    padding-top: 2vh;
+  }
+
+  &__footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 2vh;
+  }
+
+  &__job {
+    font-weight: 300;
+    flex-basis: 60%;
+    color: #fff;
+  }
+  &__link {
+    a {
+      text-decoration: none;
+      color: #fff;
+      @include fz(14);
+    }
+    span {
+      padding-left: 5px;
+    }
+  }
+  &__photo {
+    flex-basis: 40%;
+    img {
+      width: 100%;
+      max-width: 550px;
+      vertical-align: top;
+    }
+  }
+  &__content {
+    flex-basis: 55%;
+  }
+  &__reward {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 4vh;
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+  &__text {
+    color: #fff;
+    padding: 3vh 0 6vh;
+    ul {
+      padding: 0;
+      margin: 0;
+      @include fz(22);
+      max-width: 650px;
+      font-weight: 300;
+      list-style-type: none;
+      li {
+        position: relative;
+        &::before {
+          content: '-';
+          display: inline-block;
+          padding-right: 10px;
+        }
+      }
+    }
+  }
+  &__year {
+    font-weight: 700;
+    @include fz(24);
+    color: #fff;
+    flex-basis: 25%;
+  }
+  &__items {
+    flex-basis: 73%;
+  }
+  &__item {
+    border-bottom: 1px solid #fff;
+    color: #fff;
+    padding-bottom: 1em;
+    margin-bottom: 4vh;
+    font-weight: normal;
+  }
+}
+@media screen and (max-width: 992px) {
+  .page-team {
+    .wrapper_big {
+      max-width: 600px;
+    }
+  }
+  .team {
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    &:first-child {
+      margin-top: 5vh;
+    }
+    &__wrap {
+      flex-direction: column;
+    }
+    &__image {
+      text-align: center;
+    }
+    &__photo {
+      padding-bottom: 3vh;
+    }
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .team {
+    text-align: center;
+    &__footer {
+      flex-direction: column;
+    }
+  }
+}
+
+
+@media screen and (max-width: 480px) {
+  .team {
+    &__reward {
+      flex-direction: column;
+    }
+    &__year {
+      padding-bottom: 3vh;
+    }
+    &__text {
+      ul {
+        @include fz(16)
+      }
+    }
+  }
+  .page-team {
+    .wrapper_team-page {
+      padding-top: 10vh;
+    }
+  }
+}

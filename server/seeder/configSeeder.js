@@ -45,7 +45,17 @@ const data = [
       }
     },
     type: 'client'
-  }
+  },
+  {
+    name: 'address',
+    value: '99026 Севастополь, Россия<br />ул. Соловьёва 12, офис 234',
+    type: 'client'
+  },
+  {
+    name: 'time',
+    value: 'пн. - птн.: 10:00 - 19:00<br />сб.: 10:00 - 14:00<br />вс.: выходной',
+    type: 'client'
+  },
 ]
 
 module.exports = async () => {

@@ -8,4 +8,6 @@ router.get('/config', configController.getByFront)
 router.get('/page/:alias', pageController.getPageByAlias)
 router.get('/clients', clientController.getAll)
 
+router.use('/team', require('./team'))
+
 module.exports = router

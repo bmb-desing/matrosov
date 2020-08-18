@@ -99,6 +99,13 @@ const data = [
     image: './slider/first.jpg',
     keywords: 'Главная страница',
    
+  },
+  {
+    alias: 'contacts',
+    title: 'Контакты',
+    description: 'Контакты',
+    image: 'contacts.jpg',
+    keywords: 'Контакты'
   }
 ]
 

@@ -3,7 +3,18 @@
     <div class="wrapper">
       <div class="wrapper_team">
         <h1 class="title title_white title_page">Команда</h1>
-        <div class="wrapper_content"></div>
+        <div class="wrapper_content">
+          <div class="team__wrap">
+            <h2 class="title title_white title_second">Ключевые лица</h2>
+            <div class="team__content">
+              <team-item
+                v-for="item in team"
+                :key="item._id"
+                :team="item"
+              ></team-item>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
     <instagram></instagram>
@@ -11,15 +22,20 @@
 </template>
 <script>
 import Instagram from '../../components/pages/Instagram'
+import TeamItem from '../../components/pages/team/TeamItem'
 export default {
+  name: 'Team',
   components: {
-    Instagram
+    Instagram,
+    TeamItem
   },
   async asyncData({ app, error }) {
     try {
       const page = await app.$axios.get('/page/team')
+      const team = await app.$axios.get('/team')
       if (page.status === 200) {
         return {
+          team: team.data,
           page: page.data
         }
       } else {

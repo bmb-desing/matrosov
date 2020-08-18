@@ -16,7 +16,7 @@
     <transition name="fade">
       <cookie v-if="!cookie"></cookie>
     </transition>
-    <nuxt />
+    <nuxt keep-alive />
     <main-footer v-if="footer"></main-footer>
   </div>
 </template>
